@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Contact Us</h1>
+      <p>
+        Fill out the form below and we will receive an instant text message
+        with your details.
+      </p>
+      <form id="contact-form" novalidate>
+        <label class="field">
+          <span>Name</span>
+          <input type="text" name="name" required maxlength="80" />
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" maxlength="120" />
+        </label>
+        <label class="field">
+          <span>Phone Number</span>
+          <input type="tel" name="phone" maxlength="40" />
+        </label>
+        <label class="field">
+          <span>How can we help?</span>
+          <textarea name="message" rows="6" required maxlength="1000"></textarea>
+        </label>
+        <button type="submit">Send message</button>
+      </form>
+      <p id="form-status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="script.js" defer></script>
+  </body>
+</html>
