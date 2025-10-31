@@ -1,0 +1,18 @@
+{
+  "name": "wrtpros",
+  "version": "1.0.0",
+  "description": "Contact form server that sends SMS notifications via Twilio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node scripts/run-smoke-test.js"
+  },
+  "keywords": [
+    "contact",
+    "twilio",
+    "sms"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
