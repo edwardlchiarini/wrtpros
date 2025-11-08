@@ -3,37 +3,167 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
+    <title>WRT Pros — Strategic Writing & Content Studio</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main class="container">
-      <h1>Contact Us</h1>
-      <p>
-        Fill out the form below and we will receive an instant text message
-        with your details.
-      </p>
-      <form id="contact-form" novalidate>
-        <label class="field">
-          <span>Name</span>
-          <input type="text" name="name" required maxlength="80" />
-        </label>
-        <label class="field">
-          <span>Email</span>
-          <input type="email" name="email" maxlength="120" />
-        </label>
-        <label class="field">
-          <span>Phone Number</span>
-          <input type="tel" name="phone" maxlength="40" />
-        </label>
-        <label class="field">
-          <span>How can we help?</span>
-          <textarea name="message" rows="6" required maxlength="1000"></textarea>
-        </label>
-        <button type="submit">Send message</button>
-      </form>
-      <p id="form-status" role="status" aria-live="polite"></p>
-    </main>
+    <div class="page">
+      <header class="hero">
+        <nav class="top-nav">
+          <a class="brand" href="#top">WRT Pros</a>
+          <a class="pill-button" href="#contact">Book a consult</a>
+        </nav>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Story-first content for modern brands</p>
+            <h1>Words that unlock momentum.</h1>
+            <p class="lede">
+              We help founders, agencies, and marketing teams transform complex
+              ideas into clear stories that win attention, build trust, and
+              drive action.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#contact">Start a project</a>
+              <a class="secondary-link" href="#services">Explore our services</a>
+            </div>
+            <dl class="metrics">
+              <div>
+                <dt>250+ launches</dt>
+                <dd>Product stories and campaigns shipped worldwide.</dd>
+              </div>
+              <div>
+                <dt>4.9★ feedback</dt>
+                <dd>From long-term partners across SaaS, fintech, and media.</dd>
+              </div>
+              <div>
+                <dt>72-hour turnarounds</dt>
+                <dd>Rapid workshops to keep your roadmap moving forward.</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="hero-card">
+            <h2>Your content pit crew</h2>
+            <p>
+              Bring us in when you need senior writers who can capture your
+              voice, challenge assumptions, and deliver polished copy on a tight
+              timeline.
+            </p>
+            <ul>
+              <li>Launch messaging & positioning</li>
+              <li>Sales enablement & product one-pagers</li>
+              <li>Thought-leadership ghostwriting</li>
+            </ul>
+            <a class="card-link" href="#contact">Let’s collaborate →</a>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section id="services" class="section">
+          <div class="section-header">
+            <p class="eyebrow">How we work</p>
+            <h2>Strategic writing that scales with your team</h2>
+            <p>
+              From a single sales deck to a full-funnel content engine, we plug
+              into your workflow with research-driven narratives and crisp
+              editing.
+            </p>
+          </div>
+          <div class="card-grid">
+            <article class="service-card">
+              <h3>Messaging systems</h3>
+              <p>
+                Align product, marketing, and leadership with a clear hierarchy
+                of stories, proof points, and audience-specific angles.
+              </p>
+              <ul>
+                <li>Positioning frameworks</li>
+                <li>Launch playbooks</li>
+                <li>Investor & sales narratives</li>
+              </ul>
+            </article>
+            <article class="service-card">
+              <h3>Editorial engines</h3>
+              <p>
+                Build momentum with content pillars, calendars, and brand voices
+                that resonate with the customers you want most.
+              </p>
+              <ul>
+                <li>Thought leadership programs</li>
+                <li>Founder ghostwriting</li>
+                <li>Long-form articles & guides</li>
+              </ul>
+            </article>
+            <article class="service-card">
+              <h3>Revenue enablement</h3>
+              <p>
+                Equip your sales and success teams with tailored stories that
+                close deals and deepen relationships.
+              </p>
+              <ul>
+                <li>Case studies & win stories</li>
+                <li>One-sheeters & decks</li>
+                <li>Website copy refreshes</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section id="contact" class="section contact-section">
+          <div class="contact-wrapper">
+            <div class="contact-intro">
+              <p class="eyebrow">Let’s talk</p>
+              <h2>Tell us what you’re building</h2>
+              <p>
+                Share a few details and we’ll follow up with an intro call, a
+                project outline, and a transparent timeline.
+              </p>
+              <div class="contact-details">
+                <div>
+                  <span class="label">Email</span>
+                  <a href="mailto:hello@wrtpros.com">hello@wrtpros.com</a>
+                </div>
+                <div>
+                  <span class="label">Phone</span>
+                  <a href="tel:+14151234567">+1 (415) 123-4567</a>
+                </div>
+              </div>
+            </div>
+            <form id="contact-form" class="contact-form" novalidate>
+              <label class="field">
+                <span>Name</span>
+                <input type="text" name="name" required maxlength="80" />
+              </label>
+              <label class="field">
+                <span>Work email</span>
+                <input type="email" name="email" maxlength="120" />
+              </label>
+              <label class="field">
+                <span>Phone number</span>
+                <input type="tel" name="phone" maxlength="40" />
+              </label>
+              <label class="field">
+                <span>How can we help?</span>
+                <textarea name="message" rows="6" required maxlength="1000"></textarea>
+              </label>
+              <button type="submit">Send message</button>
+              <p id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <p>© <span id="year"></span> WRT Pros. Strategic writing and content operations.</p>
+      </footer>
+    </div>
     <script src="script.js" defer></script>
   </body>
 </html>

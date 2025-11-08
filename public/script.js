@@ -1,6 +1,11 @@
 (function () {
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
+  const yearEl = document.getElementById('year');
+
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
   if (!form) {
     return;
@@ -8,6 +13,7 @@
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (!statusEl) return;
     statusEl.textContent = 'Sending your message...';
     statusEl.className = '';
 
@@ -36,8 +42,7 @@
         form.reset();
       } else {
         statusEl.textContent =
-          body.message ||
-          'Something went wrong. Please call us directly or try again later.';
+          body.message || 'Something went wrong. Please call us directly or try again later.';
         statusEl.className = 'error';
       }
     } catch (error) {
