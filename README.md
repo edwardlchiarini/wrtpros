@@ -80,13 +80,17 @@ a platform that supports Node.js applications:
 
 #### Option 1: Render
 
-1. Create a new Web Service at [render.com](https://render.com)
+This repository includes a `render.yaml` configuration file for easy deployment.
+
+1. Create a new Blueprint at [render.com](https://render.com)
 2. Connect your GitHub repository
-3. Set the following configuration:
-   - **Build Command:** (leave empty, no build needed)
-   - **Start Command:** `node server.js`
-   - **Environment:** Add your Twilio credentials as environment variables
-4. Deploy
+3. Render will detect the `render.yaml` file and configure the service automatically
+4. Add your Twilio credentials as environment variables
+5. Deploy
+
+Alternatively, you can create a Web Service manually:
+- **Build Command:** (leave empty)
+- **Start Command:** `node server.js`
 
 #### Option 2: Railway
 
