@@ -40,6 +40,22 @@ served, and verifies the validation path of the contact endpoint:
 npm test
 ```
 
+## Capturing UI screenshots in CI sandboxes
+
+If you need to help the agent grab a screenshot of the refreshed landing page
+while working in a locked-down environment, these steps typically solve browser
+automation failures:
+
+1. Ensure the dev server is running and reachable at `http://localhost:3000` by
+   starting it in a separate shell with `npm start` before the automation step.
+2. Confirm port `3000` is exposed to the browser container (or forwarded when
+   invoking Playwright) so the page is accessible.
+3. Avoid ad-blockers or restrictive network policies in the sandbox; they can
+   block asset requests and cause blank screenshots.
+4. If screenshots still fail, capture a static render by running `npm test` to
+   confirm the app builds, then use Playwright's `page.screenshot()` against the
+   running server with adequate wait time for fonts/images to load.
+
 ## Configuration notes
 
 - Set `SKIP_TWILIO=true` when running tests or developing without internet
