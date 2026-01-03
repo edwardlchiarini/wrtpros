@@ -56,6 +56,57 @@ automation failures:
    confirm the app builds, then use Playwright's `page.screenshot()` against the
    running server with adequate wait time for fonts/images to load.
 
+## Deployment
+
+### GitHub Pages (Static Frontend Only)
+
+This repository includes a GitHub Actions workflow that automatically deploys
+the static files from the `public/` directory to GitHub Pages when changes are
+pushed to the `main` branch.
+
+**Note:** GitHub Pages only hosts static files. The contact form will not
+function without a backend server to handle the `/api/contact` endpoint.
+
+To enable GitHub Pages:
+
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment", select "GitHub Actions" as the source
+3. Push to the `main` branch to trigger the deployment workflow
+
+### Full Application Deployment (with Backend)
+
+To deploy the complete application with working contact form functionality, use
+a platform that supports Node.js applications:
+
+#### Option 1: Render
+
+This repository includes a `render.yaml` configuration file for easy deployment.
+
+1. Create a new Blueprint at [render.com](https://render.com)
+2. Connect your GitHub repository
+3. Render will detect the `render.yaml` file and configure the service automatically
+4. Add your Twilio credentials as environment variables
+5. Deploy
+
+Alternatively, you can create a Web Service manually:
+- **Build Command:** (leave empty)
+- **Start Command:** `node server.js`
+
+#### Option 2: Railway
+
+1. Create a new project at [railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Railway will auto-detect the Node.js application
+4. Add environment variables for Twilio credentials
+5. Deploy
+
+#### Option 3: Vercel
+
+1. Install the Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in the project directory
+3. Follow the prompts to deploy
+4. Add environment variables via the Vercel dashboard
+
 ## Configuration notes
 
 - Set `SKIP_TWILIO=true` when running tests or developing without internet
