@@ -115,3 +115,12 @@ Alternatively, you can create a Web Service manually:
 - The server expects properly formatted JSON bodies on `POST /api/contact` and
   limits incoming payloads to 1 MB.
 - Static files are served from the `public/` directory.
+
+## FAQ
+
+### Where is wrtpros.com hosted?
+
+The `wrtpros.com` domain currently has no DNS records pointing to a hosting
+provider, so it is not serving this site publicly. To run the site, deploy this
+Node.js server to your preferred host and configure the domain’s DNS to point
+there.
