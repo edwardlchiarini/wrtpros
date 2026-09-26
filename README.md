@@ -56,6 +56,13 @@ automation failures:
    confirm the app builds, then use Playwright's `page.screenshot()` against the
    running server with adequate wait time for fonts/images to load.
 
+
+## Product planning
+
+If you want to evolve this project into a field operations platform with receipt OCR, item-to-job allocation, employee scheduling, and job photo tracking, start with:
+
+- `docs/field-ops-platform-plan.md`
+
 ## Deployment
 
 ### GitHub Pages (Static Frontend Only)
