@@ -56,6 +56,8 @@ function buildSmsBody(payload) {
     lines.push(`Phone: ${payload.phone}`);
   }
 
+  if (payload.service) lines.push(`Service: ${payload.service}`);
+
   lines.push('Message:');
   lines.push(payload.message || '(No message provided)');
 

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="WRTPros provides 24/7 emergency water damage restoration, mold mitigation, and rebuild services in Dallas, TX and surrounding areas.">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://unpkg.com">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -190,7 +190,7 @@
       <div style="height:12px"></div>
       <div id="map" aria-label="Service area map"></div>
       <div class="notice" style="margin-top:10px;">
-        Note: The circle is a visual approximation. True drive-time isochrones require a routing API; we can add that later if you want.
+        Service boundaries are approximate. Call to confirm availability and response time at your property.
       </div>
     </div>
   </div>
@@ -200,14 +200,14 @@
   <div class="container">
     <div class="h3">Contact</div>
     <div class="card hero-card" style="padding:18px;">
-      <form class="form" method="POST" action="contact.php">
+      <form id="contact-form" class="form" method="POST" action="/api/contact">
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" required placeholder="Your name">
         </div>
         <div>
           <label for="phone">Phone</label>
-          <input id="phone" name="phone" required placeholder="(###) ###-####">
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(###) ###-####">
         </div>
         <div>
           <label for="email">Email</label>
@@ -226,14 +226,16 @@
         </div>
         <div style="grid-column:1/-1">
           <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Address, what happened, when it occurred, and any claim info if available."></textarea>
+          <textarea id="message" name="message" maxlength="1000" required placeholder="Address, what happened, when it occurred, and any claim info if available."></textarea>
         </div>
         <div class="form-actions" style="grid-column:1/-1">
           <button class="btn primary" type="submit">Send Message</button>
           <a class="btn ok" href="sms:+14697599659">Text Photos</a>
           <a class="btn" href="tel:+14697599659">Call 24/7</a>
-          <span class="small">Form sends to <b>contact@wrtpros.com</b>.</span>
+          <span class="small">Send a request, or email <a href="mailto:edwardlchiarini@gmail.com">edwardlchiarini@gmail.com</a>.</span>
         </div>
+        <p id="form-status" role="status" aria-live="polite" style="grid-column:1/-1"></p>
+        <a id="email-fallback" class="btn" href="mailto:edwardlchiarini@gmail.com" hidden>Open request in your email app</a>
       </form>
       <div class="notice" style="margin-top:10px;">
         <b>HQ:</b> 8312 Coral Dr, Dallas, TX 75243 • <b>Office:</b> (214) 978-7488 • <b>Emergency:</b> (469) 759-9659
@@ -252,6 +254,7 @@
   </div>
 </footer>
 
+<script src="assets/js/site.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

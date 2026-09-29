@@ -4,6 +4,10 @@
 (function() {
   const mapEl = document.getElementById("map");
   if (!mapEl) return;
+  if (typeof L === 'undefined') {
+    mapEl.textContent = 'Serving Dallas and surrounding communities. Call to confirm service at your address.';
+    return;
+  }
 
   const dallas = [32.7767, -96.7970]; // Dallas, TX (approx)
   const map = L.map("map", { scrollWheelZoom: false }).setView(dallas, 9);

@@ -23,7 +23,18 @@
       email: formData.get('email')?.trim(),
       phone: formData.get('phone')?.trim(),
       message: formData.get('message')?.trim(),
+      service: formData.get('service')?.trim(),
     };
+
+    const fallback = document.getElementById('email-fallback');
+    if (fallback) {
+      const subject = 'WRTPros service request: ' + (payload.service || 'Inspection');
+      const body = `Name: ${payload.name}\nPhone: ${payload.phone}\nEmail: ${payload.email || ''}\nService: ${payload.service || ''}\n\n${payload.message}`;
+      fallback.href = 'mailto:edwardlchiarini@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      fallback.hidden = true;
+    }
+    const submit = form.querySelector('[type=submit]');
+    if (submit) submit.disabled = true;
 
     try {
       const response = await fetch('/api/contact', {
@@ -44,12 +55,17 @@
         statusEl.textContent =
           body.message || 'Something went wrong. Please call us directly or try again later.';
         statusEl.className = 'error';
+        statusEl.textContent = 'Your request was not sent. Please call, text, or use the email button below.';
+        if (fallback) fallback.hidden = false;
       }
     } catch (error) {
       statusEl.textContent =
         'We could not send your message right now. Please try again later.';
       statusEl.className = 'error';
-      console.error('Failed to submit contact form', error);
+      if (fallback) fallback.hidden = false;
+      statusEl.textContent = 'Your request was not sent. Please call, text, or use the email button below.';
+    } finally {
+      if (submit) submit.disabled = false;
     }
   });
 })();
