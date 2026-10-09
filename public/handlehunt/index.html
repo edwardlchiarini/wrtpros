@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HandleHunt - Public Username Footprint Search</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Public identity footprint engine</p>
+        <h1>HandleHunt</h1>
+      </div>
+      <button id="adminToggle" class="ghost-button" type="button">Admin tools</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h2>Search profiles, mentions, and OSINT sources from one dashboard.</h2>
+          <p>
+            Enter a handle, name, email prefix, or city. HandleHunt builds direct profile
+            checks, mention searches, free OSINT-tool links, and a report-ready lead list.
+          </p>
+        </div>
+
+        <form id="searchForm" class="search-panel">
+          <label>
+            Primary username or handle
+            <input id="handleInput" name="handle" placeholder="dallasgoldbug" autocomplete="off" required />
+          </label>
+          <div class="field-grid">
+            <label>
+              Real name
+              <input id="nameInput" name="name" placeholder="Edward Chiarini" autocomplete="off" />
+            </label>
+            <label>
+              City / region
+              <input id="cityInput" name="city" placeholder="Dallas TX" autocomplete="off" />
+            </label>
+          </div>
+          <label>
+            Email prefix or alias
+            <input id="aliasInput" name="alias" placeholder="edc, wellaware1, wrtpros" autocomplete="off" />
+          </label>
+          <div class="actions">
+            <button type="submit">Run public scan</button>
+            <button id="clearBtn" class="secondary" type="button">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="adminPanel" class="admin-panel hidden">
+        <div>
+          <h3>Admin platform editor</h3>
+          <p>Add or remove public profile URL patterns. Use <code>{handle}</code> where the username belongs.</p>
+        </div>
+        <form id="platformForm" class="platform-form">
+          <input id="platformName" placeholder="Platform name" />
+          <input id="platformUrl" placeholder="https://example.com/{handle}" />
+          <button type="submit">Add source</button>
+        </form>
+      </section>
+
+      <section class="summary-grid" aria-live="polite">
+        <div>
+          <strong id="profileCount">0</strong>
+          <span>profile checks</span>
+        </div>
+        <div>
+          <strong id="mentionCount">0</strong>
+          <span>mention searches</span>
+        </div>
+        <div>
+          <strong id="osintCount">0</strong>
+          <span>free OSINT tools</span>
+        </div>
+        <div>
+          <strong id="scoreCount">0</strong>
+          <span>high-value leads</span>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <nav class="tabs" aria-label="Result tabs">
+          <button class="tab active" data-tab="profiles" type="button">Profiles</button>
+          <button class="tab" data-tab="mentions" type="button">Mentions</button>
+          <button class="tab" data-tab="tools" type="button">Free OSINT tools</button>
+          <button class="tab" data-tab="report" type="button">Report</button>
+        </nav>
+
+        <section id="profiles" class="tab-panel active">
+          <div class="panel-heading">
+            <h3>Direct profile checks</h3>
+            <p>These open predictable public profile URLs. Verified existence requires API/back-end checking in phase two.</p>
+          </div>
+          <div id="profilesList" class="result-list empty-state">Run a scan to generate profile leads.</div>
+        </section>
+
+        <section id="mentions" class="tab-panel">
+          <div class="panel-heading">
+            <h3>Username and name mentions</h3>
+            <p>Search queries for posts, bios, comments, indexed pages, archives, and forum references.</p>
+          </div>
+          <div id="mentionsList" class="result-list empty-state">Run a scan to generate mention searches.</div>
+        </section>
+
+        <section id="tools" class="tab-panel">
+          <div class="panel-heading">
+            <h3>Free OSINT tools</h3>
+            <p>Open-source or free username-search resources that can be combined into the back-end later.</p>
+          </div>
+          <div id="toolsList" class="result-list empty-state">Run a scan to generate OSINT tool links.</div>
+        </section>
+
+        <section id="report" class="tab-panel">
+          <div class="panel-heading">
+            <h3>Report builder</h3>
+            <p>Copy, download, or hand this JSON to a future PDF generator.</p>
+          </div>
+          <div class="report-actions">
+            <button id="copyReport" class="secondary" type="button">Copy report JSON</button>
+            <button id="downloadReport" type="button">Download report</button>
+          </div>
+          <pre id="reportOutput" class="report-output">{ "status": "No scan yet" }</pre>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p>Search only public data, authorized APIs, and user-provided facts. Private accounts and dating-app data need consent or platform access.</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
